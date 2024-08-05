@@ -1,0 +1,19 @@
+soul-social-app/
+├── src/
+│   ├── components/       # Reusable components
+│   ├── pages/            # Next.js pages
+│   │   ├── api/          # API routes
+│   │   ├── _app.tsx      # Custom App component
+│   │   ├── _document.tsx # Custom Document component
+│   │   └── index.tsx     # Home page
+│   ├── styles/           # Global styles
+│   ├── utils/            # Utility functions
+│   ├── hooks/            # Custom hooks
+│   ├── types/            # TypeScript types
+│   └── lib/              # External libraries or modules
+├── public/               # Static assets
+├── .eslintrc.json        # ESLint configuration
+├── tailwind.config.js    # Tailwind CSS configuration
+├── tsconfig.json         # TypeScript configuration
+├── package.json          # NPM dependencies
+└── next.config.js        # Next.js configuration
