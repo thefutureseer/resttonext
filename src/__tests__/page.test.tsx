@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Home from '../app/page';
+import SignInForm from '@/components/SignInForm';
 
 
 test('renders greeting: All souls welcome', () => {

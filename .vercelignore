@@ -1,4 +1,4 @@
 skip-folder/
-/tests/
+/src/__tests__/
 *.log
 *.env
