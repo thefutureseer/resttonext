@@ -4,30 +4,32 @@ const SignInForm:React.FC = () => {
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
 
-     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-      <h1 className="text-4xl font-bold text-blue-600">All souls welcome</h1>
-      <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in</h2>
-     </div>
+     <header className="flex bg-emerald-300 mx-auto max-w-7xl items-center justify-between p-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <h1 className="text-4xl font-bold text-blue-600">All souls welcome</h1>
+      </div>
+     </header>
 
      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in</h2>
 
       <form className="space-y-6" action="#" method="POST">
         
        <div>
         <label className="block text-sm font-medium leading-6 text-gray-900" htmlFor="email">email</label>
         <div className="mt-2">
-         <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="email" name="email" type="email" maxLength={25} autoFocus required></input>
+         <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-3" id="email" name="email" type="email" maxLength={25} autoFocus required placeholder="email"></input>
         </div>
        </div>
 
        <div>
         <label className="block text-sm font-medium leading-6 text-gray-900" htmlFor="password">password</label>
         <div className="text-sm">
-         <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="password" name="password" type="password" autoFocus required></input>
+         <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-3" id="password" name="password" type="password" autoFocus required placeholder="password"></input>
         </div>
         <div className="mt-2 flex items-center justify-between">
          <div className="text-sm">
-            <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+            <a href="#" className="font-semibold text-indigo-400 hover:text-indigo-500">Forgot password?</a>
          </div>
         </div>
        </div>
@@ -39,7 +41,7 @@ const SignInForm:React.FC = () => {
 
       <p className="mt-10 text-center text-sm text-gray-500">
         Not a member?
-       <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"> Start a 14 day free trial</a>
+       <a href="#" className="font-semibold leading-6 text-indigo-900 hover:text-indigo-500"> Start a 14 day free trial</a>
       </p>
     </div>
     </div>
