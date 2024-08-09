@@ -1,10 +1,10 @@
+import React from "react";
 import SignInForm from "@/components/SignInForm";
-import "./globals.css";
+import "../styles/globals.css";
 
 export default function Home() {
   return (
-    <div className="flex  min-h-screen items-center justify-center">
-      <SignInForm />
-    </div>
-  );
+    <div>
+      <SignInForm/>
+    </div>);
 }
