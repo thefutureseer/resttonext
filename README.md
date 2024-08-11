@@ -1,1 +1,1 @@
-Using Next instead of REST
+Using Next api and REST
