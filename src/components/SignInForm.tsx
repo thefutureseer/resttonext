@@ -1,10 +1,21 @@
 import React from "react";
+import Image from "next/image"
 
 const SignInForm:React.FC = () => {
   return (
-    <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="flex min-h-full flex-col justify-center px3 py-12 lg:px-8">
 
      <header className="flex bg-emerald-300 mx-auto max-w-7xl items-center justify-between p-6 lg:px-8">
+      <div className="p-4">
+        <Image 
+          src='/logo_2024.svg'
+          alt="Dans Levitating Logo"
+          className="dark:invert"
+          width={80}
+          height={19}
+          priority
+        />
+      </div>  
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h1 className="text-4xl font-bold text-blue-600">All souls welcome</h1>
       </div>
@@ -24,7 +35,7 @@ const SignInForm:React.FC = () => {
 
        <div>
         <label className="block text-sm font-medium leading-6 text-gray-900" htmlFor="password">password</label>
-        <div className="text-sm">
+        <div className="mt-2">
          <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-3" id="password" name="password" type="password" autoFocus required placeholder="password"></input>
         </div>
         <div className="mt-2 flex items-center justify-between">
