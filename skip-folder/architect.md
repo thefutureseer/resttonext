@@ -1,6 +1,6 @@
 Technologies:
 Next.js,  
-MongoDB,  
+SQL DB,  
 Express,  
 Node.js,  
 TypeScript,  
@@ -44,17 +44,18 @@ ESLint
 - **Global Styles**: Apply global styles through the main CSS file.
 - **Responsive Design**: Use Tailwind’s responsive utility classes for different screen sizes.
 
-### 5. **Backend with Express and MongoDB**
+### 5. **Backend with Express and SQL**
 
 #### **API Design**
 - **RESTful Principles**: Design APIs that follow RESTful conventions.
 - **Middleware**: Use Express middleware for request handling, logging, etc.
 - **Error Handling**: Implement error handling middleware.
 
-#### **Database Integration**
-- **Mongoose**: Use Mongoose for MongoDB schema definitions and data validation.
-- **Database Models**: Create models for your data entities.
-- **Connection Management**: Efficiently handle database connections.
+### **Database Integration**
+- **PostgreSQL**: Use Sequelize (ORM) or an alternative like TypeORM for schema definitions and data validation.
+- **Database Models**: Define models (entities) representing data structure, including fields, data types, and relationships.
+- **Connection Management**: Implement efficient database connection handling and pooling to manage connections in a scalable manner.
+
 
 ### 6. **Authentication and Authorization**
 
@@ -93,8 +94,7 @@ ESLint
 - **Testing**: Automate tests to run on each push or pull request.
 
 #### **Deployment Platforms**
-- **Vercel**: Deploy your Next.js frontend.
-- **Render or Heroku**: Deploy your Express backend and MongoDB.
+- **Vercel**: Deploy your Next.js frontend and SQL backend.
 
 ### 10. **Security Best Practices**
 
