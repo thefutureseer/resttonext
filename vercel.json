@@ -1,8 +1,27 @@
 {
+  "version": 2,
   "builds": [
-    { "src": "package.json", "use": "@vercel/node" }
+    { "src": "package.json", "use": "@vercel/next" }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
   ],
   "env": {
-    "PNPM_VERSION": "9.7.0"
-  }
+    "NODE_ENV": "production"
+  },
+  "build": {
+    "env": {
+      "CUSTOM_BUILD_ENV_VAR": "value"
+    }
+  },
+  "functions": {
+    "api/**/*.ts": {
+      "maxDuration": 10
+    }
+  },
+  "cleanUrls": true,
+  "trailingSlash": false
 }
