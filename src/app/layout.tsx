@@ -17,7 +17,7 @@ export default function RootLayout({
     // Simulate a loading time for the splash screen:
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500); // 500ms delay for splash screen
+    }, 1500); // 500ms delay for splash screen
 
     return () => clearTimeout(timer); // Clean up the timer on unmount
   }, []);
