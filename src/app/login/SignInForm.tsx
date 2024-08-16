@@ -1,25 +1,10 @@
 import React from "react";
-import Image from "next/image";
+import Header from "../components/ui/Header";
 
 const SignInForm:React.FC = () => {
   return (
     <div className="flex min-h-full flex-col justify-center px3 py-12 lg:px-8">
-
-     <header className="flex bg-emerald-300 mx-auto max-w-7xl items-center justify-between p-6 lg:px-8">
-      <div className="p-4">
-        <Image 
-          src='/logo_2024.svg'
-          alt="Dans Levitating Logo"
-          className="dark:invert"
-          width={80}
-          height={19}
-          priority
-        />
-      </div>  
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h1 className="text-4xl font-bold text-blue-600">All souls welcome</h1>
-      </div>
-     </header>
+     <Header/>
 
      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in</h2>
