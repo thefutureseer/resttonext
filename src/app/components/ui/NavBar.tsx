@@ -14,6 +14,16 @@ const NavBar: React.FC = () => {
     setOpenClose(!openClose);
   };
 
+  const handleSignIn = () => {
+    console.log("handle sigh in")
+    window.location.href = "/login";
+  };
+
+  const handleSignOut = () => {
+    setSignedIn(false);
+    //clear tokens , auth state, session
+  };
+
   return (
     <nav className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -130,7 +140,7 @@ const NavBar: React.FC = () => {
                   id="user-menu-button"
                   aria-expanded={openClose}
                   aria-haspopup="true"
-                  onClick={toggleState} // Toggle profile dropdown
+                  onClick={toggleState} // mobile toggle dropdown
                 >
                   <span className="sr-only">Open user menu</span>
                   <img
@@ -152,8 +162,9 @@ const NavBar: React.FC = () => {
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
+                    onClick={ !signedIn ? handleSignIn : handleSignOut }
                   >
-              {!signedIn? "Sign in" :"Sign out"}
+                   {!signedIn? "SignIn" :"SignOut"}
                   </a>
                 </div>
               )}
