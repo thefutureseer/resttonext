@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 const NavBar: React.FC = () => {
   const [openClose, setOpenClose] = useState(false);
-  const [signedIn, setSignedIn] = useState(false);
+  const [signedInOut, setSignedIn] = useState(false);
 
   useEffect(()=>{
     const userSignedIn = false; //replace later with check session
@@ -15,13 +15,13 @@ const NavBar: React.FC = () => {
   };
 
   const handleSignIn = () => {
-    console.log("handle sigh in")
     window.location.href = "/login";
   };
 
   const handleSignOut = () => {
-    setSignedIn(false);
+    setSignedIn(!signedInOut);
     //clear tokens , auth state, session
+    window.location.href="/"
   };
 
   return (
@@ -81,7 +81,7 @@ const NavBar: React.FC = () => {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 <a
-                  href="#"
+                  href="/"
                   className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
                   aria-current="page"
                 >
@@ -162,9 +162,9 @@ const NavBar: React.FC = () => {
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
-                    onClick={ !signedIn ? handleSignIn : handleSignOut }
+                    onClick={signedInOut ? handleSignOut : handleSignIn}
                   >
-                   {!signedIn? "SignIn" :"SignOut"}
+                   {signedInOut? "SignOut" : "SignIn"}
                   </a>
                 </div>
               )}
@@ -178,7 +178,7 @@ const NavBar: React.FC = () => {
         <div className="sm:hidden" id="mobile-menu">
           <div className="space-y-1 px-2 pb-3 pt-2">
             <a
-              href="#"
+              href="/"
               className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
               aria-current="page"
             >
