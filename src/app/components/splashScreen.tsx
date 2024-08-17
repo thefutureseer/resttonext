@@ -12,7 +12,7 @@ const SplashScreen:React.FC = () => {
         alt="splash screen"
         width={80}
         height={80}
-        className="rounded-full dark:invert animate-spin"
+        className="rounded-full dark:invert animate-spinOnce"
        />  Loading..</h1>
     </div>
   );
