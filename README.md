@@ -1,1 +1,1 @@
-Using Next api and REST
+Social media app for the soul using TypeScript, Next.js, Tailwind, and adding SQL.
