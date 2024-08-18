@@ -14,11 +14,14 @@
   "dependencies": {
     "@eslint/config-array": "^0.17.1",
     "@eslint/object-schema": "^2.1.4",
+    "@prisma/client": "^5.18.0",
     "@tailwindcss/forms": "^0.5.7",
     "autoprefixer": "^10.4.20",
     "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
     "next": "14.2.5",
     "next-auth": "5.0.0-beta.20",
+    "pg": "^8.12.0",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -36,12 +39,13 @@
     "eslint-config-prettier": "^9.1.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-environment-jsdom": "^29.7.0",
-    "postcss": "^8.4.40",
+    "postcss": "^8.4.41",
     "prettier": "^3.3.3",
+    "prisma": "^5.18.0",
     "supertest": "^7.0.0",
-    "tailwindcss": "^3.4.7",
+    "tailwindcss": "^3.4.10",
     "ts-jest": "^29.2.4",
-    "typescript": "^5"
+    "typescript": "^5.5.4"
   },
   "jest": {
     "preset": "ts-jest",
@@ -53,7 +57,9 @@
       "js",
       "jsx",
       "ts",
-      "tsx"
+      "tsx",
+      "json",
+      "node"
     ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
