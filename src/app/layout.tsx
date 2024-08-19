@@ -1,6 +1,5 @@
 'use client'
 import React, { useState, useEffect } from "react";
-// import { SessionProvider } from 'next-auth/react';
 import SplashScreen from "./components/splashScreen";
 // Global styles.
 import "../styles/globals.css";
@@ -15,11 +14,9 @@ export default function RootLayout({
 
   useEffect(() => {
     // Simulate a loading time for the splash screen:
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       setIsLoading(false);
     }, 500); // 500ms delay for splash screen
-
-    return () => clearTimeout(timer); // Clean up the timer on unmount
   }, []);
 
   return (
