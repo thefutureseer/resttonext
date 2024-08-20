@@ -5,9 +5,10 @@ import "../styles/globals.css";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-emerald-300 flex flex-col">
       <NavBar/>
       <Header/>
+      <div className="bg-gradient-to-b from-emerald-400 to-emerald-700 min-h-screen flex flex-col"></div>
     </div>
   );
-};
+}
