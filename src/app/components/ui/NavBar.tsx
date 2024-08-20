@@ -155,7 +155,7 @@ const NavBar: React.FC = () => {
                   <Image
                     className="h-8 w-8 rounded-full"
                     width={80}
-                    height={80}
+                    height={19}
                     src="/profile_pic_IMG.jpg"
                     alt="profile pic"
                   />
