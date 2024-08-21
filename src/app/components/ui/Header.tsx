@@ -18,8 +18,7 @@ const Header = () => {
       <h1 className="text-4xl font-bold text-blue-600">All souls welcome</h1>
     </div>
    </div>
-  )
-
+  );
 };
 
 export default Header;
