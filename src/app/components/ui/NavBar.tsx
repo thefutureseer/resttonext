@@ -34,7 +34,7 @@ const NavBar: React.FC = () => {
   if (isLoading) return null;
 
   return (
-    <nav className="bg-gray-800">
+    <nav className="relative z-50 bg-gray-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           {/* Mobile size screen menu button */}
@@ -103,7 +103,7 @@ const NavBar: React.FC = () => {
                   soul team
                 </a>
                 <a
-                  href="#"
+                  href="signup"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
                   sign up
@@ -202,13 +202,13 @@ const NavBar: React.FC = () => {
               soul team
             </a>
             <a
-              href="#"
+              href="signup"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               sign up
             </a>
             <a
-              href="#"
+              href="login"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
               sign in
