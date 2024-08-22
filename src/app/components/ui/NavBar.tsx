@@ -1,13 +1,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 const NavBar: React.FC = () => {
   const [openClose, setOpenClose] = useState(false);
-  const [signedInOut, setSignedIn] = useState(false);
+  const [signedInOut, setSignedInOut] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(()=>{
     const userSignedIn = false; //replace later with check session
-    setSignedIn(userSignedIn);
+    setSignedInOut(userSignedIn);
   }, [])
 
   const toggleState = () => {
@@ -15,17 +17,24 @@ const NavBar: React.FC = () => {
   };
 
   const handleSignIn = () => {
+    setIsLoading(true);
     window.location.href = "/login";
+    setIsLoading(false);
   };
 
   const handleSignOut = () => {
-    setSignedIn(!signedInOut);
+    setIsLoading(true);
+    setSignedInOut(!signedInOut);
     //clear tokens , auth state, session
     window.location.href="/"
+    setIsLoading(false);
   };
 
+  // If loading, render nothing to prevent the flash
+  if (isLoading) return null;
+
   return (
-    <nav className="bg-gray-800">
+    <nav className="relative z-50 bg-gray-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           {/* Mobile size screen menu button */}
@@ -85,25 +94,25 @@ const NavBar: React.FC = () => {
                   className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
                   aria-current="page"
                 >
-                  Dashboard
+                  dashboard
                 </a>
                 <a
                   href="#"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
-                  Team
+                  soul team
                 </a>
                 <a
-                  href="#"
+                  href="signup"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
-                  Projects
+                  sign up
                 </a>
                 <a
-                  href="#"
+                  href="/login"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
-                  Calendar
+                  sign in
                 </a>
               </div>
             </div>
@@ -143,8 +152,10 @@ const NavBar: React.FC = () => {
                   onClick={toggleState} // mobile toggle dropdown
                 >
                   <span className="sr-only">Open user menu</span>
-                  <img
+                  <Image
                     className="h-8 w-8 rounded-full"
+                    width={80}
+                    height={19}
                     src="/profile_pic_IMG.jpg"
                     alt="profile pic"
                   />
@@ -182,25 +193,25 @@ const NavBar: React.FC = () => {
               className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
               aria-current="page"
             >
-              Dashboard
+              dashboard
             </a>
             <a
               href="#"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
-              Team
+              soul team
             </a>
             <a
-              href="#"
+              href="signup"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
-              Projects
+              sign up
             </a>
             <a
-              href="#"
+              href="login"
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
             >
-              Calendar
+              sign in
             </a>
           </div>
         </div>

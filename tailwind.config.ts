@@ -8,18 +8,50 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
       keyframes: {
         spinOnce: {
-          '0%': { transform: 'rotate(0deg)' },
+          '0%': { transform: 'rotate(0deg)', filter: 'invert(0)' },
+          '50%': { transform: 'rotate(90deg)', filter: 'invert(1)' },
           '100%': { transform: 'rotate(180deg)' },
+        },
+        slideLeft: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-777vw)' }, // Move text off-screen horizontally
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+        explosion: {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(1.5)', opacity: '0' },
+        },
+        implosion: {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(0.5)', opacity: '0' },
+        },
+        enhancedExplosion: {
+          '0%': { transform: 'scale(1)', opacity: '1', filter: 'blur(0px)' },
+          '100%': { transform: 'scale(1.8)', opacity: '0', filter: 'blur(10px)' },
         },
       },
       animation: {
-        spinOnce: 'spinOnce 1.77s ease-in-out 1', 
-        // Runs once over 1 second
+        spinOnce: 'spinOnce 1.77s ease-in-out 1',
+        slideLeft: 'slideLeft 17s linear infinite',
+        fadOut: 'fadOut 2s ease-out forwards',
+        explosion: 'explosion 1s ease-out forwards',
+        implosion: 'implosion 1s ease-in-out forwards',
+        enhancedExplosion: 'enhancedExplosion 1s ease-out forwards',
+
       },
     },
   },
   plugins: [],
 };
+
 export default config;
