@@ -10,10 +10,14 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "light-beam": "linear-gradient(to bottom right, transparent, rgba(255, 255, 255, 0.5), transparent)",
       },
       keyframes: {
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
         spinOnce: {
           '0%': { transform: 'rotate(0deg)', filter: 'invert(0)' },
           '50%': { transform: 'rotate(90deg)', filter: 'invert(1)' },
@@ -43,11 +47,11 @@ const config: Config = {
       animation: {
         spinOnce: 'spinOnce 1.77s ease-in-out 1',
         slideLeft: 'slideLeft 17s linear infinite',
-        fadOut: 'fadOut 2s ease-out forwards',
+        fadeOut: 'fadeOut 2s ease-out forwards',
         explosion: 'explosion 1s ease-out forwards',
         implosion: 'implosion 1s ease-in-out forwards',
         enhancedExplosion: 'enhancedExplosion 1s ease-out forwards',
-
+        spin: 'spin 5s linear infinite',
       },
     },
   },
