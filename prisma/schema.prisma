@@ -12,3 +12,5 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+//set up a better database schema for monks and people in need and car rides 
