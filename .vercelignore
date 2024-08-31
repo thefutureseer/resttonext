@@ -1,4 +1,21 @@
 skip-folder/
 /src/__tests__/
+
+# Ignore local environment files
+.env
+.env.*
+
+# Ignore node_modules to avoid redeploying dependencies
+node_modules
+
+# Ignore build and cache directories
+.next
+.next.cache
+
+# Ignore local development files
 *.log
-*.env
+*.tmp
+
+# Ignore specific files or directories
+coverage
+tests
