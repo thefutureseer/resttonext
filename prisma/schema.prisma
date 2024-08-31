@@ -16,8 +16,11 @@ model User {
   profilepicture     String?
   orders             Order[]            // One-to-Many: One User can have many Orders
   pastexperiences    Experience[]       // One-to-Many: One User can have many past Experiences
+  interactions       Json?              // Interaction history for the ai
   role               role_type @default(user)
   rating             Float?
+  preferences        Json?              // User preferences as JSON for the ai
+  tags               String[]          // Tags for categorization
   createdat          DateTime           @default(now())
   updated            DateTime           @default(now())
 }
@@ -30,8 +33,10 @@ model SpiritualLeader {
   profilepicture     String?
   contactinfo        String?
   rating             Float?
+  tags               String[]           // Tags for categorization
   pastbeneficiaries  Experience[]       // One-to-Many: One SpiritualLeader can have many past Experiences
   orders             Order[] //link back to order model
+  interactions       Json?              // Interaction history for the ai
   role               role_type @default(spiritual_leader)
   createdat          DateTime            @default(now())
   updatedat          DateTime            @default(now())
@@ -45,8 +50,10 @@ model Order {
   spiritualleader    SpiritualLeader    @relation(fields: [spiritualleaderid], references: [id])
   problemtosolve     String
   experiencewanted   String
+  tags               String[]          // Tags for categorization
   contactvia         ContactMethod
   status             OrderStatus        @default(pending)
+  statushistory      Json?              // History of status changes for the ai 
   createdat          DateTime           @default(now())
   updatedat          DateTime           @updatedAt
   experienceid       Int                @unique
@@ -61,10 +68,13 @@ model Experience {
   spiritualleader    SpiritualLeader    @relation(fields: [spiritualleaderid], references: [id])
   problemtosolve     String
   experiencewanted   String
+  tags               String[]          // Tags for categorization
+  statushistory      Json?              // History for the ai
   contactvia         ContactMethod
   createdat          DateTime           @default(now())
   updatedat          DateTime           @default(now())
-  order              Order? // optional in order of user 
+  order              Order?            
+  feedback           Json?              // Structured feedback data for the ai
 }
 
 enum ContactMethod {
