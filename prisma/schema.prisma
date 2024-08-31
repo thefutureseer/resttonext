@@ -16,6 +16,10 @@ model User {
   profilepicture     String?
   orders             Order[]            // One-to-Many: One User can have many Orders
   pastexperiences    Experience[]       // One-to-Many: One User can have many past Experiences
+  role               role_type @default(user)
+  rating             Float?
+  createdat          DateTime           @default(now())
+  updated            DateTime           @default(now())
 }
 
 model SpiritualLeader {
@@ -28,6 +32,9 @@ model SpiritualLeader {
   rating             Float?
   pastbeneficiaries  Experience[]       // One-to-Many: One SpiritualLeader can have many past Experiences
   orders             Order[] //link back to order model
+  role               role_type @default(spiritual_leader)
+  createdat          DateTime            @default(now())
+  updatedat          DateTime            @default(now())
 }
 
 model Order {
@@ -56,6 +63,7 @@ model Experience {
   experiencewanted   String
   contactvia         ContactMethod
   createdat          DateTime           @default(now())
+  updatedat          DateTime           @default(now())
   order              Order? // optional in order of user 
 }
 
@@ -71,4 +79,13 @@ enum OrderStatus {
   completed
   canceled
   resumed_later
+}
+
+enum role_type {
+  user
+  spiritual_leader
+  spiritual_leader_admin
+  super_admin
+  moderator
+  support
 }
