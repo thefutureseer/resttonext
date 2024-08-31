@@ -1,16 +1,74 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("POSTGRES_URL")
 }
 
-//set up a better database schema for monks and people in need and car rides 
+model User {
+  id                 Int                @id @default(autoincrement())
+  name               String
+  email              String             @unique
+  phonenumber        String?
+  address            String?
+  profilepicture     String?
+  orders             Order[]            // One-to-Many: One User can have many Orders
+  pastexperiences    Experience[]       // One-to-Many: One User can have many past Experiences
+}
+
+model SpiritualLeader {
+  id                 Int                @id @default(autoincrement())
+  name               String
+  expertise          String?
+  bio                String?
+  profilepicture     String?
+  contactinfo        String?
+  rating             Float?
+  pastbeneficiaries  Experience[]       // One-to-Many: One SpiritualLeader can have many past Experiences
+  orders             Order[] //link back to order model
+}
+
+model Order {
+  id                 Int                @id @default(autoincrement())
+  userid             Int
+  user               User               @relation(fields: [userid], references: [id])
+  spiritualleaderid  Int
+  spiritualleader    SpiritualLeader    @relation(fields: [spiritualleaderid], references: [id])
+  problemtosolve     String
+  experiencewanted   String
+  contactvia         ContactMethod
+  status             OrderStatus        @default(pending)
+  createdat          DateTime           @default(now())
+  updatedat          DateTime           @updatedAt
+  experienceid       Int                @unique
+  experience         Experience?        @relation(fields: [experienceid], references: [id])
+}
+
+model Experience {
+  id                 Int                @id @default(autoincrement())
+  userid             Int
+  user               User               @relation(fields: [userid], references: [id])
+  spiritualleaderid  Int
+  spiritualleader    SpiritualLeader    @relation(fields: [spiritualleaderid], references: [id])
+  problemtosolve     String
+  experiencewanted   String
+  contactvia         ContactMethod
+  createdat          DateTime           @default(now())
+  order              Order? // optional in order of user 
+}
+
+enum ContactMethod {
+  phone_call
+  text_message
+  video_call
+  in_person
+}
+
+enum OrderStatus {
+  pending
+  completed
+  canceled
+  resumed_later
+}
