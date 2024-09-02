@@ -57,7 +57,7 @@ model Order {
   createdat          DateTime           @default(now())
   updatedat          DateTime           @updatedAt
   experienceid       Int                @unique
-  experience         Experience?        @relation(fields: [experienceid], references: [id])
+  experiences        Experience[]       @relation("OrderExperiences")
 }
 
 model Experience {
@@ -73,7 +73,7 @@ model Experience {
   contactvia         ContactMethod
   createdat          DateTime           @default(now())
   updatedat          DateTime           @default(now())
-  order              Order?            
+  orders             Order[]            @relation("OrderExperiences")
   feedback           Json?              // Structured feedback data for the ai
 }
 
