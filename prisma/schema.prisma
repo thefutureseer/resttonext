@@ -7,26 +7,26 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-model User {
-  id                 Int                @id @default(autoincrement())
+model user {
+  id                 String             @id @default(uuid())
   name               String
   email              String             @unique
   phonenumber        String?
   address            String?
   profilepicture     String?
-  orders             Order[]            // One-to-Many: One User can have many Orders
-  pastexperiences    Experience[]       // One-to-Many: One User can have many past Experiences
-  interactions       Json?              // Interaction history for the ai
-  role               role_type @default(user)
+  orders             order[]            // One-to-Many: One User can have many Orders
+  pastexperiences    experience[]       // One-to-Many: One User can have many past Experiences
+  interactions       Json?              // Interaction history for the AI
+  role               role_type          @default(user)
   rating             Float?
-  preferences        Json?              // User preferences as JSON for the ai
-  tags               String[]          // Tags for categorization
+  preferences        Json?              // User preferences as JSON for the AI
+  tags               String[]           // Tags for categorization
   createdat          DateTime           @default(now())
   updated            DateTime           @default(now())
 }
 
-model SpiritualLeader {
-  id                 Int                @id @default(autoincrement())
+model spiritualleader {
+  id                 String             @id @default(uuid())
   name               String
   expertise          String?
   bio                String?
@@ -34,57 +34,57 @@ model SpiritualLeader {
   contactinfo        String?
   rating             Float?
   tags               String[]           // Tags for categorization
-  pastbeneficiaries  Experience[]       // One-to-Many: One SpiritualLeader can have many past Experiences
-  orders             Order[] //link back to order model
-  interactions       Json?              // Interaction history for the ai
-  role               role_type @default(spiritual_leader)
-  createdat          DateTime            @default(now())
-  updatedat          DateTime            @default(now())
-}
-
-model Order {
-  id                 Int                @id @default(autoincrement())
-  userid             Int
-  user               User               @relation(fields: [userid], references: [id])
-  spiritualleaderid  Int
-  spiritualleader    SpiritualLeader    @relation(fields: [spiritualleaderid], references: [id])
-  problemtosolve     String
-  experiencewanted   String
-  tags               String[]          // Tags for categorization
-  contactvia         ContactMethod
-  status             OrderStatus        @default(pending)
-  statushistory      Json?              // History of status changes for the ai 
-  createdat          DateTime           @default(now())
-  updatedat          DateTime           @updatedAt
-  experienceid       Int                @unique
-  experiences        Experience[]       @relation("OrderExperiences")
-}
-
-model Experience {
-  id                 Int                @id @default(autoincrement())
-  userid             Int
-  user               User               @relation(fields: [userid], references: [id])
-  spiritualleaderid  Int
-  spiritualleader    SpiritualLeader    @relation(fields: [spiritualleaderid], references: [id])
-  problemtosolve     String
-  experiencewanted   String
-  tags               String[]          // Tags for categorization
-  statushistory      Json?              // History for the ai
-  contactvia         ContactMethod
+  pastbeneficiaries  experience[]       // One-to-Many: One SpiritualLeader can have many past Experiences
+  orders             order[]            // Link back to order model
+  interactions       Json?              // Interaction history for the AI
+  role               role_type          @default(spiritual_leader)
   createdat          DateTime           @default(now())
   updatedat          DateTime           @default(now())
-  orders             Order[]            @relation("OrderExperiences")
-  feedback           Json?              // Structured feedback data for the ai
 }
 
-enum ContactMethod {
+model order {
+  id                 String             @id @default(uuid())
+  userid             String
+  user               user               @relation(fields: [userid], references: [id])
+  spiritualleaderid  String
+  spiritualleader    spiritualleader    @relation(fields: [spiritualleaderid], references: [id])
+  problemtosolve     String
+  experiencewanted   String
+  tags               String[]           // Tags for categorization
+  contactvia         contactmethod
+  status             orderstatus        @default(pending)
+  statushistory      Json?              // History of status changes for the AI 
+  createdat          DateTime           @default(now())
+  updatedat          DateTime           @updatedAt
+  experienceid       String             @unique
+  experiences        experience[]       @relation("orderexperiences")
+}
+
+model experience {
+  id                 String             @id @default(uuid())
+  userid             String
+  user               user               @relation(fields: [userid], references: [id])
+  spiritualleaderid  String
+  spiritualleader    spiritualleader    @relation(fields: [spiritualleaderid], references: [id])
+  problemtosolve     String
+  experiencewanted   String
+  tags               String[]           // Tags for categorization
+  statushistory      Json?              // History for the AI
+  contactvia         contactmethod
+  createdat          DateTime           @default(now())
+  updatedat          DateTime           @default(now())
+  orders             order[]            @relation("orderexperiences")
+  feedback           Json?              // Structured feedback data for the AI
+}
+
+enum contactmethod {
   phone_call
   text_message
   video_call
   in_person
 }
 
-enum OrderStatus {
+enum orderstatus {
   pending
   completed
   canceled
