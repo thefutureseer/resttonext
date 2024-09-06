@@ -1,4 +1,4 @@
-import LoginForm from '@/app/login/SignInForm';
+import LoginForm from '@/app/components/ui/SignInForm';
 import NavBar from '@/app/components/ui/NavBar';
 
 export default function LoginPage() {

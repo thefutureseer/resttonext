@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "seed": "ts-node prisma/seed",
-    "seedSpirit": "ts-node prisma/seedSpirit"
+    "seedSpirit": "ts-node prisma/seedSpirit",
+    "seedUsers": "ts-node prisma/userSeed"
   },
   "pnpm": {
     "version": "7.0.0"
