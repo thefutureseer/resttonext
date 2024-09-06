@@ -1,28 +1,22 @@
 'use client';
 
 import React from 'react';
+import {Users} from '@/types';
 
-interface User {
-  id: number;
-  name: string;
-  profilepicture?: string;
-  role?: string;
-}
-
-const CardsList: React.FC<{ users: User[] }> = ({ users }) => {
+const CardsList: React.FC<{ users: Users[] }> = ({ users }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
       {users.map((user) => (
         <div key={user.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
           {/* Card Header */}
-          <div className="bg-gradient-to-r from-purple-500 to-indigo-300 p-4">
+          <div className="bg-gradient-to-r from-purple-800 to-sky-300 p-4">
             <h2 className="text-white text-2xl font-semibold">{user.name}</h2>
           </div>
 
           {/* Card Image */}
           <img
             src={user.profilepicture || '/path-to-image.jpg'}
-            alt={user.name || 'Spiritual Leader'}
+            alt={user.name || user.role}
             className="w-full h-48 object-cover"
           />
 
@@ -34,7 +28,7 @@ const CardsList: React.FC<{ users: User[] }> = ({ users }) => {
           </div>
 
           {/* Card Border */}
-          <div className="border-t-4 border-purple-500"></div>
+          <div className="border-t-4 border-purple-900"></div>
         </div>
       ))}
     </div>

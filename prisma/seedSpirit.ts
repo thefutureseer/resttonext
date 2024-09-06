@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  // Create spiritual leaders
+  // Create spiritual leaders who have passed away!!
   const spiritualLeaders = [
     {
       name: 'Dalai Lama',
