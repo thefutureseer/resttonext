@@ -1,5 +1,5 @@
 export interface Users {
-  id: string;
+  id: String;
   name: string;
   profilepicture?: string|null;
   role?: string;
