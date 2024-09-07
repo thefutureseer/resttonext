@@ -1,9 +1,12 @@
-'use client';
-
 import React from 'react';
-import {Users} from '@/types';
+import { User } from '@/types'; 
+import Image from "next/image";
 
-const CardsList: React.FC<{ users: Users[] }> = ({ users }) => {
+const CardsList: React.FC<{ users: User[] }> = ({ users }) => {
+  if (users.length === 0) {
+    return <p className="text-center">Nothing to see here!</p>;
+  }
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
       {users.map((user) => (
@@ -14,9 +17,12 @@ const CardsList: React.FC<{ users: Users[] }> = ({ users }) => {
           </div>
 
           {/* Card Image */}
-          <img
-            src={user.profilepicture || '/path-to-image.jpg'}
-            alt={user.name || user.role}
+          <Image
+            src="https://via.placeholder.com/500x300"
+            alt="Placeholder Image"
+            width={500}
+            height={500}
+            // alt={user.name || user.role}
             className="w-full h-48 object-cover"
           />
 

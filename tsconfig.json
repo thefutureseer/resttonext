@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
+    "target": "ESNext",
+    "module": "CommonJS",
     "jsx": "preserve",
     "esModuleInterop": true,
     "skipLibCheck": true,
