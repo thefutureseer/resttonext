@@ -1,10 +1,10 @@
-import { PrismaClient, role_type, ContactMethod, OrderStatus } from '@prisma/client';
+import { PrismaClient, role_type, contactmethod, orderstatus } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 async function main() {
   // Create spiritual leaders
-  const spiritualLeaders = [
+  const spiritualleaders = [
     { name: 'Deepak Chopra', expertise: 'Meditation and Wellness', bio: 'Author and alternative medicine advocate', profilepicture: 'https://example.com/deepak.jpg', contactinfo: 'deepak.chopra@example.com', rating: 4.9 },
     { name: 'Eckhart Tolle', expertise: 'Spiritual Awakening', bio: 'Author of "The Power of Now"', profilepicture: 'https://example.com/eckhart.jpg', contactinfo: 'eckhart.tolle@example.com', rating: 4.8 },
     // Add more spiritual leaders here...
@@ -12,8 +12,8 @@ async function main() {
 
   // Create spiritual leaders in the database
   const createdLeaders = await Promise.all(
-    spiritualLeaders.map(leader =>
-      prisma.spiritualLeader.create({
+    spiritualleaders.map(leader =>
+      prisma.spiritualleader.create({
         data: leader
       })
     )
