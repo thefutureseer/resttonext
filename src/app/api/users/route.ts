@@ -1,4 +1,3 @@
-// src/app/api/users/route.ts
 import { NextResponse } from 'next/server';
 import prisma from '@/utils/prisma';  // Adjust the import path if needed
 
@@ -10,4 +9,4 @@ export async function GET() {
     console.error('Error fetching users:', error);
     return NextResponse.error();
   }
-}
+};

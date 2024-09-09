@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const CardsList: React.FC<{ users: User[] }> = ({ users }) => {
   if (users.length === 0) {
-    return <p className="text-center">Nothing to see here!</p>;
+    return <p className="text-center">loading. .</p>;
   }
 
   return (

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Dropdown from "./DropDown";
 
 const NavBar: React.FC = () => {
   const [openClose, setOpenClose] = useState(false);
@@ -96,12 +97,20 @@ const NavBar: React.FC = () => {
                 >
                   dashboard
                 </a>
-                <a
+                <Dropdown
+                  label="Soul Team"
+                  options={[
+                    { label: "Users", href: "/soulteam" },
+                    { label: "Spiritual Leaders", href: "/spiritualleader" },
+                    { label: "Admin", href: "/not-found" },
+                  ]}
+                />
+                {/* <a
                   href="/soulteam"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
                   soul team
-                </a>
+                </a> */}
                 <a
                   href="signup"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"

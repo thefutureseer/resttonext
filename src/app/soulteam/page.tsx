@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import { User } from '@/types';
-import CardsList from '@/app/components/ui/CardsList'; // Adjust if it's the correct path
+import CardsList from '@/app/components/ui/CardsList';
 import NavBar from '@/app/components/ui/NavBar';
 
 
