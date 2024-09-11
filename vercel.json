@@ -5,5 +5,14 @@
   ],
   "env": {
     "PNPM_VERSION": "9.7.0"
-  }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "headers": {
+        "Cache-Control": "no-store"
+      },
+      "dest": "/api/$1"
+    }
+  ]
 }
