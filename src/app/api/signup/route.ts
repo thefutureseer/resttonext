@@ -30,4 +30,4 @@ export async function POST(req: Request) {
     console.error('Error during signup:', err);
     return NextResponse.json({ message: 'An error occurred during signup.' }, { status: 500 });
   }
-}
+};

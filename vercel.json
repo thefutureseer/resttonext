@@ -3,14 +3,13 @@
   "builds": [
     { "src": "package.json", "use": "@vercel/next" }
   ],
-  "env": {
-    "PNPM_VERSION": "9.7.0"
-  },
   "routes": [
     {
       "src": "/api/(.*)",
       "headers": {
-        "Cache-Control": "no-store"
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0"
       },
       "dest": "/api/$1"
     }
