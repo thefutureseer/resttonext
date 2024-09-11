@@ -37,7 +37,7 @@ const SignInForm:React.FC = () => {
 
       <p className="mt-10 text-center text-sm text-gray-500">
         Not a member?
-       <a href="#" className="font-semibold leading-6 text-indigo-900 hover:text-indigo-500"> Start a 14 day free trial</a>
+       <a href="/signup" className="font-semibold leading-6 text-indigo-900 hover:text-indigo-500"> Start a 14 day free trial</a>
       </p>
     </div>
     </div>

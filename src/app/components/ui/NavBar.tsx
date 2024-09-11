@@ -118,7 +118,7 @@ const NavBar: React.FC = () => {
                   sign up
                 </a>
                 <a
-                  href="/login"
+                  href="login"
                   className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
                   sign in
