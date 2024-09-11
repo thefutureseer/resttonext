@@ -11,7 +11,7 @@ const SignUp: React.FC = () => {
   const [error, setError] = useState<string | undefined>(undefined);
   const [success, setSuccess] = useState<string | undefined>(undefined);
   //image spinner
-  const [state, setState] = useState(true);
+  const [state] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const submitHandler = async (e: React.FormEvent) => {
@@ -21,14 +21,6 @@ const SignUp: React.FC = () => {
       setError("Passwords do not match");
       return;
     }
-
-    useEffect(() => {
-      console.log("timer, 1 sec")
-      const timer = setTimeout(() => {
-        setState(false); 
-      }, 1000);
-      return () => clearTimeout(timer);
-    },[])
 
     setLoading(true);
 
