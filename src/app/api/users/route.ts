@@ -5,5 +5,5 @@ import prisma from '@/utils/prisma';
 export async function GET() {
   console.log('Fetching fresh data................................');
   const users = await prisma.user.findMany();
-  return NextResponse.json(users);
+  return NextResponse.json(users, { headers: { 'Cache-Control': 'no-cache' } });
 };
