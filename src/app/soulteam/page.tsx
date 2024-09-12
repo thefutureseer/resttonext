@@ -41,10 +41,11 @@ export default function SoulTeamPage(): JSX.Element {
     );
   }
 
+  const reverseArrayOfUsers = [...users].reverse();
   return (
     <div>
       <NavBar />
-      <CardsList users={users} /> {/* Render CardsList with the fetched users */}
+      <CardsList users={reverseArrayOfUsers} /> {/* Render CardsList with the fetched users */}
     </div>
   );
 };
