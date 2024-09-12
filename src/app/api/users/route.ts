@@ -1,22 +1,16 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/utils/prisma';
 
-// This is a dynamic API route because it fetches data on each request
-export async function GET() {
-  try {
-    console.log('Fetching fresh data................................');
-    const users = await prisma.user.findMany();
+// Force dynamic rendering for this API route
+export const dynamic = 'force-dynamic';
 
-    // Return the users with Cache-Control header to prevent caching
-    return NextResponse.json(users, {
-      headers: {
-        'Cache-Control': 'no-cache, no-store, must-revalidate', // Prevents caching
-        'Pragma': 'no-cache', // For HTTP/1.0 compatibility
-        'Expires': '0', // For HTTP/1.0 compatibility
-      },
-    });
+export async function GET() {
+  console.log('Fetching fresh data................................');
+  try {
+    const users = await prisma.user.findMany();
+    return NextResponse.json(users, { headers: { 'Cache-Control': 'no-cache' } });
   } catch (error) {
-    console.error('Error fetching users:', error);
+    console.error('Failed to fetch users:', error);
     return NextResponse.json({ error: 'Failed to fetch users' }, { status: 500 });
   }
 };
