@@ -23,7 +23,7 @@ export default function SoulTeamPage(): JSX.Element {
         setError('Failed to load users');
       }
     }
-    getUsers();
+    getUsers(); 
   }, []); // Empty dependency array to run once on mount
 
   if (error) {
